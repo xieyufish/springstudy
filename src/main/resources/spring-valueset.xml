@@ -9,11 +9,11 @@
     <!-- 构造器方式注入 -->
 	<bean id="person" class="com.shell.bean.Person">
 		<constructor-arg name="name" value="xieyu"></constructor-arg>
-		<!-- <constructor-arg name="age" value="23"></constructor-arg> -->
+		<constructor-arg name="age" value="23"></constructor-arg>
 	</bean>
 	
-	<bean id="person1" class="com.shell.bean.Person">
+	<!-- <bean id="person1" class="com.shell.bean.Person">
 		<property name="name" value="xy"></property>
 		<property name="age" value="24"></property>
-	</bean>
+	</bean> -->
 </beans>
