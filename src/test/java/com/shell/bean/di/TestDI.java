@@ -19,7 +19,10 @@ public class TestDI extends UnitTestBase{
 	
 	@Test
 	public void test() {
-		Person person = getBean("person");
-		System.out.println(person);
+		Person person = getBean("person5");
+		System.out.println(person.getList());
+		System.out.println(person.getMap());
+		System.out.println(person.getProperties());
+		System.out.println(person.getSet());
 	}
 }

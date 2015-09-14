@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
    <!-- spring依赖注入Dependency Injection -->
+   <!-- 注入方式  开始 -->
    <!-- 1. 基于构造方法注入 -->
    <bean id="person" class="com.shell.bean.Person" lazy-init="true">
        <constructor-arg ref="string"></constructor-arg>
@@ -37,5 +38,39 @@
    <bean id="person4" class="com.shell.bean.Person">
        <property name="name" value="xxxxx"></property>
        <property name="age" value="23"></property>
+   </bean>
+   <!-- 注入方式  结束 -->
+   
+   <!-- 集合属性 注入 -->
+   <bean id="person5" class="com.shell.bean.Person">
+       <property name="name" value="xxxxx"></property>
+       <property name="age" value="23"></property>
+       <property name="properties">
+           <props>
+               <prop key="driver">com.jdbc.mysql.Driver</prop>
+               <prop key="username">xieyu</prop>
+               <prop key="pwd">123456</prop>
+           </props>
+       </property>
+       <property name="list">
+           <list>
+               <value>xxxx</value>
+               <ref bean="person4"/>
+               <value>yyyy</value>
+           </list>
+       </property>
+       <property name="map">
+           <map>
+               <entry key="name" value="xxxxxx"></entry>
+               <entry key="pwd" value="yyyyy"></entry>
+           </map>
+       </property>
+       <property name="set">
+           <set>
+               <value>xyxyxy</value>
+               <ref bean="person3"/>
+               <value>yyyyyy</value>
+           </set>
+       </property>
    </bean>
 </beans>
