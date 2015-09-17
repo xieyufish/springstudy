@@ -29,17 +29,10 @@
        <constructor-arg name="age" value="23"></constructor-arg>
    </bean>
    
-   <bean id="person3" class="com.shell.bean.Person">
+   <bean id="person3" class="com.shell.bean.Person" scope="prototype">
        <constructor-arg type="java.lang.String" value="xxxxx"></constructor-arg>
        <constructor-arg type="java.lang.Integer" value="23"></constructor-arg>
    </bean>
-   
-   <!-- 2.通过setter方法注入 -->
-   <bean id="person4" class="com.shell.bean.Person">
-       <property name="name" value="xxxxx"></property>
-       <property name="age" value="23"></property>
-   </bean>
-   <!-- 注入方式  结束 -->
    
    <!-- 集合属性 注入 -->
    <bean id="person5" class="com.shell.bean.Person">
@@ -55,7 +48,7 @@
        <property name="list">
            <list>
                <value>xxxx</value>
-               <ref bean="person4"/>
+               <!-- <ref bean="person4"/> -->
                <value>yyyy</value>
            </list>
        </property>
@@ -68,9 +61,28 @@
        <property name="set">
            <set>
                <value>xyxyxy</value>
-               <ref bean="person3"/>
+             <!--   <ref bean="person3"/> -->
                <value>yyyyyy</value>
            </set>
        </property>
    </bean>
+   
+   <!-- 2.通过setter方法注入 -->
+   <bean id="person4" class="com.shell.bean.Person" >
+       <property name="name" value="xxxxx"></property>
+       <property name="age" value="23"></property>
+   </bean>
+   <!-- 注入方式  结束 -->
+   
+   <bean id="mi" class="com.shell.bean.di.MethodInjectionImpl"></bean>
+   <bean id="mii" class="com.shell.bean.di.MethodInjection">
+       <lookup-method bean="mi" name="createString"></lookup-method>
+       <lookup-method bean="mi" name="create"/>
+   </bean>
+   
+   <bean id="mr" class="com.shell.bean.di.MethodReplaced">
+       <replaced-method name="replace" replacer="mmr">
+       </replaced-method>
+   </bean>
+   <bean id="mmr" class="com.shell.bean.di.MyMethodReplacer"></bean>
 </beans>

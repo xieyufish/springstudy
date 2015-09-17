@@ -25,4 +25,16 @@ public class TestDI extends UnitTestBase{
 		System.out.println(person.getProperties());
 		System.out.println(person.getSet());
 	}
+	
+	@Test
+	public void test1() {
+		MethodInjection methodInjection = getBean("mi");
+		System.out.println(methodInjection.process("asdf"));
+	}
+	
+	@Test
+	public void test2() {
+		MethodReplaced methodReplaced = getBean("mr");
+		methodReplaced.replace();
+	}
 }
